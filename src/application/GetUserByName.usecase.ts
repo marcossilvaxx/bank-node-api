@@ -1,7 +1,7 @@
 import { User } from "../domain/entities/User";
 import { IUserRepository } from "../domain/repositories/IUserRepository";
 
-class GetUserById {
+class GetUserByName {
   private userRepository: IUserRepository;
 
   constructor(
@@ -10,11 +10,11 @@ class GetUserById {
     this.userRepository = userRepository;
   }
 
-  execute(id: number): User | null {
-    const result = this.userRepository.findById(id);
+  execute(name: string): User | null {
+    const result = this.userRepository.findByName(name);
 
     return result;
   }
 }
 
-export { GetUserById };
+export { GetUserByName };
