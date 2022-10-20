@@ -26,14 +26,10 @@ class AccountRepository implements IAccountRepository {
     return result[0];
   }
 
-  findByUserId(userId: number): Account | null {
+  findByUserId(userId: number): Account[] {
     const result = this.inMemoryDatabase.select(this.TABLE_NAME, { column: "userId", value: userId });
 
-    if (result.length === 0) {
-      return null;
-    }
-
-    return result[0];
+    return result;
   }
 }
 
