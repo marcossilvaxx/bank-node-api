@@ -16,8 +16,8 @@ class UserRepository implements IUserRepository {
     return users;
   }
 
-  findById(id: number): User | null {
-    const result = this.inMemoryDatabase.select(this.TABLE_NAME, { column: "id", value: id });
+  findByName(name: string): User | null {
+    const result = this.inMemoryDatabase.select(this.TABLE_NAME, { column: "name", value: name });
 
     if (result.length === 0) {
       return null;
